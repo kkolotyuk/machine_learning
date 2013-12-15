@@ -5,7 +5,8 @@ function x = emailFeatures(word_indices)
 %   produces a feature vector from the word indices. 
 
 % Total number of words in the dictionary
-n = 1899;
+vocabList = getVocabList();
+n = length(vocabList);
 
 % You need to return the following variables correctly.
 x = zeros(n, 1);
@@ -47,9 +48,14 @@ x = zeros(n, 1);
 %              x = [ 0 0 0 0 1 0 0 0 ... 0 0 0 0 1 ... 0 0 0 1 0 ..];
 %
 %
-
-
-
+    word_indices
+	fprintf('Number of duplicates in word_indices: %d\n', is_duplicate_entry (word_indices));
+	size(word_indices, 2);
+    for i=1:size(word_indices, 1)
+        x(word_indices(i)) = 1;
+    end
+    fprintf('Number of one entries: %d\n', sum(x == 1));
+    fprintf('Number of zero entries: %d\n', sum(x == 0));
 
 
 
